@@ -1,4 +1,4 @@
-package hello;
+package hello.user;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,7 +20,7 @@ public class PersonsController {
 	PersonRepository repo;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
+//	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public Collection<Person> getPersons() {
 		Collection<Person> persons = new ArrayList<Person>();
 		repo.findAll().forEach(persons::add);
@@ -28,7 +28,7 @@ public class PersonsController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
+//	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public ResponseEntity<?> addKid(@RequestBody Person person) {
 		repo.save(person);
 		HttpHeaders httpHeaders = new HttpHeaders();

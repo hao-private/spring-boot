@@ -1,4 +1,4 @@
-package hello;
+package hello.config;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -10,6 +10,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import hello.user.Person;
+import hello.user.PersonRepository;
 
 @Service
 public class FakeUserDetailsService implements UserDetailsService {

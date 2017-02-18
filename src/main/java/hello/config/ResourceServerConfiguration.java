@@ -1,4 +1,4 @@
-package hello;
+package hello.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -22,8 +22,10 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
         http.
         anonymous().disable()
         .requestMatchers().antMatchers("/greeting/**")
+        .antMatchers("/persons/**")
         .and().authorizeRequests()
-        .antMatchers("/greeting/**").access("hasRole('ROLE_ADMIN')")
+        .antMatchers("/greeting/**").access("hasRole('ROLE_BASIC')")
+        .antMatchers("/persons/**").access("hasRole('ROLE_ADMIN')")
         .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
     }
 }
