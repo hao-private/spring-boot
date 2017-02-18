@@ -22,7 +22,7 @@ public class FakeUserDetailsService implements UserDetailsService {
 			if (person == null) {
 			throw new UsernameNotFoundException("Username " + username + " not found");
 		}
-		return new User(username, "password", getGrantedAuthorities(username));
+		return new User(username, person.getPassword(), getGrantedAuthorities(username));
 	}
 
 	private Collection<? extends GrantedAuthority> getGrantedAuthorities(String username) {

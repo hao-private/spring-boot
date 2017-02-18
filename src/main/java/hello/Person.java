@@ -19,5 +19,6 @@ public class Person {
 	@GeneratedValue
 	private Long id;
 	private String name;
+	private String password;
 	
 }

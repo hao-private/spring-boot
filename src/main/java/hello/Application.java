@@ -22,8 +22,8 @@ public class Application extends SpringBootServletInitializer {
     @Bean
     public CommandLineRunner demo(PersonRepository repo) {
     	return (args) -> {
-    		repo.save(Person.builder().name("Tim").build());
-    		repo.save(Person.builder().name("Viktor").build());
+    		repo.save(Person.builder().name("Tim").password("Tim").build());
+    		repo.save(Person.builder().name("Viktor").password("Viktor").build());
     	};
     }
 }
