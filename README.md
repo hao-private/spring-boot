@@ -7,3 +7,11 @@ to debug:
 to run:
 
 mvn spring-boot:run
+
+
+#create keystore
+keytool -genkey -alias springbootexample -keyalg RSA -keystore src/main/resources/tomcat.keystore
+
+#run spring boot with ssl
+mvn spring-boot:run -Drun.profiles=https
+
