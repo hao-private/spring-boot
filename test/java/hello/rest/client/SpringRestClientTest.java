@@ -3,6 +3,8 @@ package hello.rest.client;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.connected.rest.client.SpringRestClient;
+
 
 public class SpringRestClientTest {
 

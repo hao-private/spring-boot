@@ -1,4 +1,4 @@
-package hello.mix;
+package com.connected.mix;
 
 import org.h2.server.web.WebServlet;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;

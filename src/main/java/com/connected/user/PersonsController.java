@@ -1,4 +1,4 @@
-package hello.user;
+package com.connected.user;
 
 import java.util.ArrayList;
 import java.util.Collection;

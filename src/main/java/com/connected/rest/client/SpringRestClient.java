@@ -1,4 +1,4 @@
-package hello.rest.client;
+package com.connected.rest.client;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;
@@ -11,7 +11,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-import hello.greeting.Greeting;
+import com.connected.greeting.Greeting;
+
 import lombok.extern.log4j.Log4j;
 
 @Log4j

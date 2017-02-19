@@ -1,4 +1,4 @@
-package hello;
+package com.connected;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -7,8 +7,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 
-import hello.user.Person;
-import hello.user.PersonRepository;
+import com.connected.user.Person;
+import com.connected.user.PersonRepository;
 
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {

@@ -1,8 +1,10 @@
-package hello.user;
+package com.connected.user;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,6 +21,8 @@ public class Person {
 	@GeneratedValue
 	private Long id;
 	private String name;
+	
+	@JsonIgnore
 	private String password;
 	
 }

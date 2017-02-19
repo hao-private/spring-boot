@@ -1,4 +1,4 @@
-package hello.greeting;
+package com.connected.greeting;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
