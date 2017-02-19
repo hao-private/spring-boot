@@ -1,11 +1,9 @@
-to debug:
-
+Debug:
 1. mvnDebug spring-boot:run
 2. use debug remote java application
 
 
-to run:
-
+Run:
 mvn spring-boot:run
 
 
