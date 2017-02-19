@@ -2,16 +2,17 @@ package com.connected.user;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
+import org.springframework.hateoas.Resources;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @RequestMapping("/persons")
@@ -20,18 +21,26 @@ public class PersonsController {
 	PersonRepository repo;
 	
 	@RequestMapping(method = RequestMethod.GET)
-//	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public Collection<Person> getPersons() {
-		Collection<Person> persons = new ArrayList<Person>();
-		repo.findAll().forEach(persons::add);
-		return persons;
+	public Resources<PersonResource> getPersons() {
+		List<PersonResource> persons = new ArrayList<PersonResource>();
+		repo.findAll().forEach(p -> {
+						persons.add(new PersonResource(p));
+		});
+		return new Resources<>(persons);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-//	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public ResponseEntity<?> addKid(@RequestBody Person person) {
-		repo.save(person);
-		HttpHeaders httpHeaders = new HttpHeaders();
-		return new ResponseEntity<>(null, httpHeaders, HttpStatus.CREATED);
+		Person newPerson = repo.save(person);
+		return ResponseEntity.created(
+					ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+						.buildAndExpand(newPerson.getId()).toUri())
+				.build();
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
+	public PersonResource getPerson(@PathVariable Long id) {
+		Person p = repo.findOne(id);
+		return new PersonResource(p);
 	}
 }
