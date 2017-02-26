@@ -14,6 +14,5 @@ mvn spring-boot:run -Drun.profiles=https
 #Start RabbitMQ
 /usr/local/sbin/rabbitmq-server
 
-#test
 
 
