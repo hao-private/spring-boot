@@ -11,4 +11,9 @@ keytool -genkey -alias springbootexample -keyalg RSA -keystore src/main/resource
 #Run spring boot with ssl
 mvn spring-boot:run -Drun.profiles=https
 
+#Start RabbitMQ
+/usr/local/sbin/rabbitmq-server
+
+#test
+
 
